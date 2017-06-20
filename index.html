@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app='canyoncc'>
 
 <head>
     <!-- Basic Page Needs
@@ -45,7 +45,7 @@
     <![endif]-->
 </head>
 
-<body>
+<body ng-controller='mainCtrl'>
     <!-- Navigation
     ==========================================-->
     <nav id="tf-menu" class="navbar navbar-default navbar-fixed-top">
@@ -86,8 +86,7 @@
                 <div class="logo">
                     <img src="img/logo.png" />
                 </div>
-                <p class="lead"><strong>Something meaningful about the Counseling Canyon Center</strong></p>
-                <p class="lead">Another shorter sentence here</p>
+                <p class="lead">Growth through Spirituality and Psychology</p>
                 <a href="#tf-about" class="fa fa-angle-down page-scroll"></a>
             </div>
         </div>
@@ -98,38 +97,32 @@
     <div id="tf-about">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <video id="myMovie" width="400px" height="320px" poster="video/01still.jpg" onclick="this.play();">
-                        <source src="video/tandoori.mp4">
-                    </video>
-                </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="about-text">
                         <div class="section-title">
-                            <h4>About Canyon Counseling</h4>
-                            <h2>SOME WORDS <strong>ABOUT</strong></h2>
+                            <h4>About</h4>
+                            <h2>CANYON COUNSELING CENTER</h2>
                             <hr>
                             <div class="clearfix"></div>
                         </div>
-                        <p class="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                            ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                            sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <!--<ul class="about-list">
-                            <li>
-                                <span class="fa fa-dot-circle-o"></span>
-                                <strong>Mission</strong> - <em>We deliver uniqueness and quality</em>
-                            </li>
-                            <li>
-                                <span class="fa fa-dot-circle-o"></span>
-                                <strong>Skills</strong> - <em>Delivering fast and excellent results</em>
-                            </li>
-                            <li>
-                                <span class="fa fa-dot-circle-o"></span>
-                                <strong>Clients</strong> - <em>Satisfied clients thanks to our experience</em>
-                            </li>
-                        </ul>-->
+                        <p class="intro">At Canyon Counseling Center, we provide professional and personalized counseling services. We seek
+                            growth and progression with each patient by applying psychological principles that are grounded
+                            in spiritual values. We work hard to create an environment that is safe and supportive - where
+                            a strong healthy relationship between the therapist and the patient can promote healing, peace
+                            and positive change. </p>
+                        <p class="intro">The initial or intake visit begins with a brief legal review of the patient/therapist relationship,
+                            the patient’s historical background, and a discussion of their expectations and objectives in
+                            therapy. This first session is also an assessment that there is and can be a “good fit” between
+                            the patient and the therapist, both in professional and personal compatibility. Thereafter, therapy
+                            is responsive to the individual’s needs and is a living process. Success is individualized and
+                            is manifest in many ways. It can mean that the patient has resolved a specific problem or in
+                            a broader sense, success can be that he or she is able to find an internal sense of peace and
+                            able to confront issues from a stable foundation. </p>
+                        <p class="intro">Canyon Counseling Center strongly believes in the highest professional standards. Each therapist
+                            has received training from reputable and well-known universities and has years of specialized
+                            experience. Qualitatively, our therapists are compassionate, ethical, and chosen in part because
+                            of their theistic, person-centered approach. Our common belief is that God helps people in their
+                            healing. </p>
                     </div>
                 </div>
             </div>
@@ -138,166 +131,43 @@
 
     <!-- Team Page
     ==========================================-->
-    <div id="tf-team" class="flex-col">
-        <div class="flex-col flex-stretch">
-            <div class="section-title">
-                <h2>Therapists</h2>
-                <div class="line">
-                    <hr>
+    <div id="tf-team" class="flex-col flex-stretch">
+        <div class="flex-col flex-stretch overlay">
+            <div class="flex-col flex-stretch">
+                <div class="section-title" ng-click="deselectTherapist()">
+                    <h2>Therapists</h2>
+                    <div class="line">
+                        <hr>
+                    </div>
                 </div>
-            </div>
+                <span class="team-cursor" ng-show="showBiography" ng-click="deselectTherapist()"> < Show all therapists</span>
 
-            <div class="flex-row flex-stretch team">
-                <div class="flex-col item">
-                    <div class="flex-col thumbnail">
-                        <img src="img/team/owen.jpg" alt="..." class="img-circle team-img">
-                        <div class="flex-col caption">
-                            <h3>Scott Owen, PhD</h3>
-                            <p>Dr. Owen holds two Bachelors degrees in Psychology and Social Psychology from the University
-                                of Utah and BYU, respectively. He received his Masters and Doctoral degrees in Counseling
-                                Psychology from BYU and is a licensed therapist..</p>
-                            <div>More...</div>
+                <div class="flex-row flex-stretch team team-cursor" ng-show="!showBiography">
+                    <div class="flex-col item" ng-repeat="therapist in therapists">
+                        <div class="flex-col thumbnail" ng-click="selectTherapist(therapist)">
+                            <img ng-src="{{therapist.imgUrl}}" alt="..." class="img-circle team-img">
+                            <div class="flex-col caption">
+                                <h3>{{therapist.name}}</h3>
+                                <p>{{therapist.abbreviated}}</p>
+                                <span>Read more...</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="flex-col item">
-                    <div class="flex-col thumbnail">
-                        <img src="img/team/hansen.jpg" alt="..." class="img-circle team-img">
-                        <div class="flex-col caption">
-                            <h3>Alan Hansen, PhD</h3>
-                            <p>Dr. Hansen earned his Masters degree in Counseling from BYU in 1994 and his Ph.D. also at BYU
-                                in 2004. He is a Licensed Psychologist and has worked for the past 15 years in a variety
-                                of mental health and school counseling settings.</p>
-                            <div>More...</div>
+                <div class="flex-col flex-stretch" ng-show="showBiography" ng-class="showBiography ? 'biography' : ''">
+                    <div class="flex-row title">
+                        <img ng-src="{{selected.imgUrl}}" alt="..." class="img-circle therapist-img">
+                        <h2>{{selected.name}}</h2>
+                    </div>
+                    <div class="flex-col">
+                        <div class="bio">
+                            <p>{{selected.bio1}}</p>
+                            <p>{{selected.bio2}}</p>
+                            <p>{{selected.bio2}}</p>
+                            <span class="conditions">{{selected.exceptions}}</span>
                         </div>
                     </div>
-                </div>
-
-                <div class="flex-col item">
-                    <div class="flex-col thumbnail">
-                        <img src="img/team/edgington.jpg" alt="..." class="img-circle team-img">
-                        <div class="flex-col caption">
-                            <h3>Shawn Edgington, PhD</h3>
-                            <p>Dr. Edgington completed a Bachelor's degree in Psychology from BYU, a Master's degree in Marriage
-                                and Family Therapy from Utah State, and a Ph.D. in the Counseling Psychology program from
-                                BYU. He is a Licensed Psychologist and has worked in the mental health field for 20 years.</p>
-                            <div>More...</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scott Owen Section
-    ==========================================-->
-    <div id="tf-therapist-eardley" class="flex-col flex-stretch">
-        <div class="overlay">
-            <div class="flex-row title">
-                <img src="img/team/owen.jpg" alt="..." class="img-circle therapist-img">
-                <h2>Scott Owen, PhD</h2>
-            </div>
-            <div class="flex-col">
-                <div class="bio">
-                    <p>
-                        Dr. Owen holds two Bachelors degrees in Psychology and Social Psychology from the University of Utah and BYU, respectively.
-                        He received his Masters and Doctoral degrees in Counseling Psychology from BYU and is a Licensed
-                        Therapist. He is a founding partner of Canyon Counseling Center.
-                    </p>
-                    <p>
-                        Scott has experience treating individuals with a wide range of mental and emotional health concerns including: depression,
-                        anxiety disorders, phobias, posttraumatic stress disorder, trauma recovery, grieving, ADHD, pornography,
-                        sexual addictions and same-gender attraction. He is a theistic therapist meaning he uses Christian
-                        values in his therapy. He is a cognitive-behavioral therapist with a person-centered, Rogerian style.
-                        He believes the therapeutic relationship is a critical factor in the success of the therapy experience.
-                        He has worked as a therapist for the past 23 years in several settings such as: private practice
-                        at Canyon Counseling Center, New Haven Residential Treatment Center for Adolescents, and at the Counseling
-                        Center at Brigham Young University.
-                    </p>
-                    <p>
-                        He loves being outdoors. He enjoys boating, waterskiing and any activity he can do from the driver's seat. Above all else,
-                        he loves being with his beautiful wife and children. As a father of three and a husband of 33 years,
-                        Scott brings firsthand knowledge of the importance of eternal, healthy relationships into the therapeutic
-                        process.
-                    </p>
-
-                    <span class="conditions">
-                        * Please note that currently Dr. Owen does not treat: 1) couples, 2) individuals with eating disorders, 3) children 13 or younger, or 4) individuals diagnosed with BPD (Borderline Personality Disorder).
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Alan Hansen Section
-    ==========================================-->
-    <div id="tf-therapist-white" class="flex-col flex-stretch">
-        <div class="flex-row title">
-            <img src="img/team/hansen.jpg" alt="..." class="img-circle therapist-img">
-            <h2>Alan Hansen, PhD</h2>
-        </div>
-        <div class="flex-col">
-            <div class="bio">
-                <p>
-                    Alan holds a masters and doctoral degree in Counseling Psychology from Brigham Young University and is a licensed psychologist.
-                    He is a founding partner of Canyon Counseling Center in Provo, Utah.
-                </p>
-                <p>
-                    Alan has experience treating a wide-range of mental and emotional challenges including: depression, anxiety disorders, phobias,
-                    post-traumatic stress disorder, trauma recovery, grieving, ADHD, pornography, sexual addictions, and
-                    same-gender attraction. He is trained in individual, couples, family and group therapy. He is a theistic
-                    therapist and approaches therapy from a Christ centered perspective. He has worked as a therapist for
-                    the past 20 years in several settings, including: private practice at Canyon Counseling Center, at New
-                    Haven Residential Treatment Center for adolescents, and as a counselor at Timpview High School.
-                </p>
-                <p>
-                    He loves living and running in the mountains. He enjoys waterskiing and any activity he can do with his family. As a father
-                    of five and a husband of 25 years, Alan knows firsthand the value and importance of family relationships.
-                </p>
-
-                <span class="conditions">
-                    * Please note that currently Dr. Hansen currently does not treat couples or children younger than 14 years old.
-                </span>
-            </div>
-        </div>
-    </div>
-
-
-
-    <!-- Shawn Edgington Section
-    ==========================================-->
-
-    <div id="tf-therapist-paria" class="flex-col flex-stretch">
-        <div class="overlay">
-            <div class="flex-row title">
-                <img src="img/team/edgington.jpg" alt="..." class="img-circle therapist-img">
-                <h2>Shawn Edgington, PhD</h2>
-            </div>
-            <div class="flex-col">
-                <div class="bio">
-                    <p>
-                        Dr. Edgington completed a Bachelor’s degree in Psychology from BYU, a Master’s degree in Marriage and Family Therapy from
-                        USU and a Ph.D. in the Counseling Psychology program from BYU. He is a Licensed Psychologist and
-                        has worked in the mental health field for 20 years. He has worked in private practice at Canyon Counseling
-                        Center since 2001.
-                    </p>
-                    <p>
-                        Clinical issues Shawn specializes in treating include the following: depression, anxiety disorders, eating disorders, sexual
-                        abuse recovery, various addictions (particularly sexual addictions), phobias, post-traumatic stress
-                        disorder, at-risk teenagers and parenting strategies. He is a theistic therapist, meaning he uses
-                        Christian values in his therapy. He believes that the therapeutic relationship is a critical factor
-                        in the success of the therapy experience.
-                    </p>
-                    <p>
-                        He loves the outdoors, particularly fly fishing (dry flies), camping, hiking, hunting and being with his family. As a father
-                        of six and a husband of 16 years, Shawn brings firsthand knowledge of healthy relationships into
-                        the therapeutic process.
-                    </p>
-
-                    <span class="conditions">
-                        * Please note that currently Dr. Edgington does not treat couples or individuals diagnosed with BPD (Borderline Personality Disorder).
-                    </span>
                 </div>
             </div>
         </div>
@@ -320,7 +190,7 @@
                         If you are a first time client, please consider printing out the following form and bringing the completed copy with you
                         to your initial visit.
                     </p>
-                    <a>Canyon Counseling First-time form</a>
+                    <a class="team-cursor">Canyon Counseling First-time form</a>
 
 
                     <p class="section-head">About Therapy</p>
@@ -428,7 +298,7 @@
                             3651 North 100 East Suite 100, Provo, Utah, 84604
                         </p>
                         <iframe class="google-maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3043.728716989901!2d-111.65929468388084!3d40.28177607175857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x874d907b086c5d15%3A0x3e5a6e31d0fd1709!2sCanyon+Counseling+Center%2C+Inc.!5e0!3m2!1sen!2sus!4v1489305890500"
-                             frameborder="0" style="border:0" allowfullscreen></iframe>
+                            frameborder="0" style="border:0" allowfullscreen></iframe>
 
                     </div>
                 </div>
@@ -450,6 +320,7 @@
     </nav>
 
 
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js'></script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
@@ -463,6 +334,8 @@
     <!-- Javascripts
     ================================================== -->
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/mainCtrl.js"></script>
 
 </body>
 

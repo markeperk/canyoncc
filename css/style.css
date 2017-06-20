@@ -220,14 +220,16 @@ ul.about-list li span{
 }
 
 /* Team Section */
-#tf-team{
-	padding: 80px;
-	height: 800px;
-}
+
 .team {
-	margin-top: 40px;
 	justify-content: space-around;
+	align-items: center;
 }
+
+.team-cursor {
+	cursor: pointer;
+}
+
 .section-title.center {
 	padding: 30px 0;
 }
@@ -252,6 +254,15 @@ ul.about-list li span{
 	position: relative;
 	left: 17%;
 }
+
+.biography {
+	-webkit-transition: opacity 2s ease-in;
+	-moz-transition: opacity 2s ease-in;
+	-o-transition: opacity 2s ease-in;
+	-ms-transition: opacity 2s ease-in;
+	transition: opacity 2s ease-in;
+}
+
 #team{ margin: 0 auto}
 #team .item{
     padding: 0;
@@ -304,20 +315,20 @@ img.img-circle.team-img {
 }
 
 @media (max-width: 375px) {
-	#tf-therapist-eardley .overlay, #tf-therapist-paria .overlay, #tf-contact .overlay, #tf-therapist-white  {
+	#tf-team .overlay, #tf-therapist-paria .overlay, #tf-contact .overlay, #tf-therapist-white  {
 		min-height: 800px;
 	}
-	#tf-therapist-eardley  .title, #tf-therapist-paria  .title, #tf-therapist-white  .title {
+	#tf-team  .title, #tf-therapist-paria  .title, #tf-therapist-white  .title {
 		flex-direction: column !Important;
 		text-align: center;
 		height: 150px;
 	}
-	#tf-therapist-eardley h2, #tf-therapist-paria h2, #tf-therapist-white h2 {
+	#tf-team h2, #tf-therapist-paria h2, #tf-therapist-white h2 {
 		line-height: 25px;
 		margin: 15px 0;
 		font-size: 22px;
 	}
-	#tf-therapist-eardley p, #tf-therapist-paria p, #tf-therapist-white p {
+	#tf-team p, #tf-therapist-paria p, #tf-therapist-white p {
 		text-align: center;
 	}
 }
@@ -350,7 +361,7 @@ img.img-circle.team-img {
 
 /* Overlay background */
 
-#tf-therapist-eardley {
+#tf-team {
 	background: url(../img/eardley.jpg);
 	background-size: cover;
 	background-position: center;
@@ -366,7 +377,7 @@ img.img-circle.team-img {
 	background-repeat: no-repeat;
 }
 
-#tf-therapist-eardley .overlay, #tf-therapist-paria .overlay, #tf-contact .overlay   {
+#tf-team .overlay, #tf-therapist-paria .overlay, #tf-contact .overlay   {
 	min-height: 600px;
 	background: -moz-linear-gradient(top,  rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.92) 17%, rgba(255, 255, 255, 0.9) 35%, rgba(255, 255, 255, 0.85) 62%, rgba(255, 255, 255, 0.8) 100%); 
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255, 255, 255, 0.95)), color-stop(17%,rgba(255, 255, 255, 0.92)), color-stop(35%,rgba(255, 255, 255, 0.9)), color-stop(62%,rgba(255, 255, 255, 0.85)), color-stop(100%,rgba(255, 255, 255, 0.8)));
