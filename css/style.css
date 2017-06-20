@@ -137,7 +137,7 @@ ul, ol{
 #tf-home{
 	background: url(../img/willis_canyon.jpg);
 	background-size: cover;
-	/*background-position: center;*/
+	background-position: center;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	color: #cfcfcf;
