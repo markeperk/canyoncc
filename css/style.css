@@ -143,6 +143,11 @@ ul, ol{
 	color: #cfcfcf;
 	height: 750px;
 }
+@media (max-width: 375px) {
+	#tf-home {
+		background-size: auto
+	}
+}
 
 #tf-home .overlay{
 	/*background: -moz-linear-gradient(top,  rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.73) 17%, rgba(0,0,0,0.66) 35%, rgba(0,0,0,0.55) 62%, rgba(0,0,0,0.4) 100%); */
@@ -193,14 +198,16 @@ a.fa.fa-angle-down:hover{
 	/*color: #cfcfcf;*/
 	padding: 80px 0;
 }
-ul.about-list { margin: 30px 0 0 ;}
-ul.about-list li{
-	display: block;
-	font-size: 16px;
-	line-height: 30px;
+ul {
+	padding-left: 15px;
+}
+ul li{
+	padding-top: 5px;
+	font-size: 12px;
+	line-height: 16px;
 	font-family: 'Open Sans', sans-serif;
 }
-ul.about-list li span{ 
+ul li span{ 
 	margin-right: 10px;
 }
 
@@ -281,7 +288,7 @@ img.img-circle.team-img {
 	transition: all 0.5s;
 }
 
-@media (max-width: 375px) {
+@media (width: 700px) {
 	#tf-team {
 		height: 950px;
 	}
@@ -314,7 +321,7 @@ img.img-circle.team-img {
 	height: 300px;
 }
 
-@media (max-width: 375px) {
+@media (width: 700px) {
 	#tf-team .overlay, #tf-therapist-paria .overlay, #tf-contact .overlay, #tf-therapist-white  {
 		min-height: 800px;
 	}
@@ -510,6 +517,17 @@ bio .conditions {
 	width: 450px; 
 	height: 300px;
 }
+@media (max-width: 1060px) {
+	#tf-contact .google-maps {
+		width: 375px; 
+		height: 300px;
+	}
+}
+@media (max-width: 985px) {
+	#tf-contact .right-text {
+		padding: 0 0 0 0px;
+	}
+}
 
 @media (max-width: 375px) {
 	#tf-contact {
@@ -555,6 +573,7 @@ bio .conditions {
 
 .double {
 	justify-content: space-between;
+	flex-wrap: wrap;
 }
 
 
