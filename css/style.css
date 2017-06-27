@@ -30,7 +30,7 @@ h1 strong{
 }
 h2{
 	text-transform: uppercase;
-	line-height: 20px;
+	line-height: 30px;
 	margin:  0;
 }
 h3{
@@ -194,7 +194,8 @@ a.fa.fa-angle-down:hover{
 	/*background-position: center;*/
 	background-attachment: fixed;
 	background-repeat: no-repeat;
-	height: 700px;
+	/*height: 700px;*/
+	height: 100%;
 	/*color: #cfcfcf;*/
 	padding: 80px 0;
 }
@@ -216,19 +217,11 @@ ul li span{
 	height: 320px;
 }
 
-@media (max-width: 375px) {
-	#myMovie {
-		width: 345px;
-		height: 265px;
-	}
-	#tf-about {
-		height: 900px;
-	}
-}
 
 /* Team Section */
 
 .team {
+	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: center;
 }
@@ -397,6 +390,13 @@ img.img-circle.team-img {
 	background-attachment: fixed;
 }
 
+/*
+@media (width: 700px) {
+	.overlay {
+		padding: 10px 20px;
+	}
+}*/
+
 /* White background
 ==============================*/
 #tf-therapist-white {
@@ -514,22 +514,24 @@ bio .conditions {
 }
 
 #tf-contact .google-maps {
-	width: 450px; 
-	height: 300px;
+	/*width: 450px; 
+	height: 300px;*/
+	width: 100%; 
+	height: 100%;
 }
-@media (max-width: 1060px) {
+/*@media (max-width: 1060px) {
 	#tf-contact .google-maps {
 		width: 375px; 
 		height: 300px;
 	}
-}
+}*/
 @media (max-width: 985px) {
 	#tf-contact .right-text {
 		padding: 0 0 0 0px;
 	}
 }
 
-@media (max-width: 375px) {
+@media (max-width: 700px) {
 	#tf-contact {
 		height: 100%;
 	}
@@ -572,7 +574,6 @@ bio .conditions {
 
 
 .double {
-	justify-content: space-between;
 	flex-wrap: wrap;
 }
 
